@@ -6,24 +6,27 @@ namespace TwoSum.UnitTests
     [TestClass]
     public class TwoSumTests
     {
-        [TestMethod]
-        public void TwoSum_OneAndOneTargetsTwo_IndicesZeroAndOne()
+        private TwoSum twoSum;
+
+        [TestInitialize]
+        public void SetUp()
         {
-            var twoSum = new TwoSum();
-            int[] numbers = new[] {1, 1};
-
-            int[] result = twoSum.FindIndices(numbers);
-
-            CollectionAssert.AreEqual(new[] { 0, 1 }, result);
+            twoSum = new TwoSum();
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
-        public void TwoSum_NullInput_ThowsException()
+        public void TwoSum_OneAndOneTargetsTwo_IndicesAreZeroAndOne()
         {
-            var twoSum = new TwoSum();
+            int[] numbers = {1, 1};
 
-            int[] result = twoSum.FindIndices(null);
+            CollectionAssert.AreEqual(new[] { 0, 1 }, twoSum.FindIndices(numbers));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TwoSum_NullInput_ThrowsArgumentNullException()
+        {
+            twoSum.FindIndices(null);
         }
     }
 }
