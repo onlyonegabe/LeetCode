@@ -8,7 +8,7 @@ namespace TwoSum
         {
             if (numbers == null) throw new ArgumentNullException();
 
-            return new[] {0, 1};
+            return new[] { 0, 1 };
         }
     }
 }

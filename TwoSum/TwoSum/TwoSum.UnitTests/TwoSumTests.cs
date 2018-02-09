@@ -17,7 +17,7 @@ namespace TwoSum.UnitTests
         [TestMethod]
         public void TwoSum_OneAndOneTargetsTwo_IndicesAreZeroAndOne()
         {
-            int[] numbers = {1, 1};
+            int[] numbers = { 1, 1 };
             var target = 2;
 
             CollectionAssert.AreEqual(new[] { 0, 1 }, twoSum.FindIndices(numbers, target));
@@ -28,6 +28,15 @@ namespace TwoSum.UnitTests
         public void TwoSum_NullInput_ThrowsArgumentNullException()
         {
             twoSum.FindIndices(null, 0);
+        }
+
+        [TestMethod]
+        public void TwoSum_TwoAndThreeTargetsFive_IndicesAreOneAndTwo()
+        {
+            int[] numbers = { 1, 2, 3 };
+            var target = 5;
+
+            CollectionAssert.AreEqual(new[] { 1, 2 }, twoSum.FindIndices(numbers, target));
         }
     }
 }
