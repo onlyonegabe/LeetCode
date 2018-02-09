@@ -18,15 +18,16 @@ namespace TwoSum.UnitTests
         public void TwoSum_OneAndOneTargetsTwo_IndicesAreZeroAndOne()
         {
             int[] numbers = {1, 1};
+            var target = 2;
 
-            CollectionAssert.AreEqual(new[] { 0, 1 }, twoSum.FindIndices(numbers));
+            CollectionAssert.AreEqual(new[] { 0, 1 }, twoSum.FindIndices(numbers, target));
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void TwoSum_NullInput_ThrowsArgumentNullException()
         {
-            twoSum.FindIndices(null);
+            twoSum.FindIndices(null, 0);
         }
     }
 }

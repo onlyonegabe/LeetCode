@@ -4,11 +4,11 @@ namespace TwoSum
 {
     public class TwoSum
     {
-        public int[] FindIndices(int[] numbers)
+        public int[] FindIndices(int[] numbers, int target)
         {
             if (numbers == null) throw new ArgumentNullException();
 
-            return new int[] {0, 1};
+            return new[] {0, 1};
         }
     }
 }
