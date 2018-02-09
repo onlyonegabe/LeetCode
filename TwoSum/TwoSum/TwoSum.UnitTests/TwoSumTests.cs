@@ -38,5 +38,15 @@ namespace TwoSum.UnitTests
 
             CollectionAssert.AreEqual(new[] { 1, 2 }, twoSum.FindIndices(numbers, target));
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void TwoSum_NumbersDontEqualTarget_ThrowsException()
+        {
+            int[] numbers = { 4, 5 };
+            var target = 10;
+
+            twoSum.FindIndices(numbers, target);
+        }
     }
 }
