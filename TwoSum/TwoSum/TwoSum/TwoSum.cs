@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace TwoSum
 {
@@ -8,23 +9,20 @@ namespace TwoSum
         {
             if (numbers == null) throw new ArgumentNullException();
 
-            for (int i = 0; i < numbers.Length - 1; i++)
+            var indicesByNumber = new Hashtable();
+            for (var i = 0; i < numbers.Length; i++)
             {
-                var firstNumber = numbers[i];
-
-                for (int j = i + 1; j < numbers.Length; j++)
+                int difference = target - numbers[i];
+                if (indicesByNumber.Contains(difference))
                 {
-                    var secondNumber = numbers[j];
-                    if (NumbersAddUpToTarget(target, firstNumber, secondNumber))
-                    {
-                        return new[] { i, j };
-                    }
+                    var indexOfDifferenceFound = int.Parse(indicesByNumber[difference].ToString());
+                    return new[] { indexOfDifferenceFound, i };
                 }
+
+                indicesByNumber.Add(numbers[i], i);
             }
 
             return new int[] { };
         }
-
-        private static bool NumbersAddUpToTarget(int target, int firstNumber, int secondNumber) => firstNumber + secondNumber == target;
     }
 }
