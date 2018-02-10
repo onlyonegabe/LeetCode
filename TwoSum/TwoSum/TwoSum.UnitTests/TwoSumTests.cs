@@ -14,13 +14,14 @@ namespace TwoSum.UnitTests
             twoSum = new TwoSum();
         }
 
-        [TestMethod]
-        public void TwoSum_OneAndOneTargetsTwo_IndicesAreZeroAndOne()
+        [DataTestMethod]
+        [DataRow(new[] { 1, 1 }, 2, new[] { 0, 1 })]
+        [DataRow(new[] { 1, 2, 3 }, 5, new[] { 1, 2 })]
+        public void TwoSum_NumbersEqualTarget_CorrectIndicesAreReturned(int[] numbers, int target, int[] expected)
         {
-            int[] numbers = { 1, 1 };
-            var target = 2;
+            int[] actual = twoSum.FindIndices(numbers, target);
 
-            CollectionAssert.AreEqual(new[] { 0, 1 }, twoSum.FindIndices(numbers, target));
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -31,22 +32,14 @@ namespace TwoSum.UnitTests
         }
 
         [TestMethod]
-        public void TwoSum_TwoAndThreeTargetsFive_IndicesAreOneAndTwo()
-        {
-            int[] numbers = { 1, 2, 3 };
-            var target = 5;
-
-            CollectionAssert.AreEqual(new[] { 1, 2 }, twoSum.FindIndices(numbers, target));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(Exception))]
-        public void TwoSum_NumbersDontEqualTarget_ThrowsException()
+        public void TwoSum_NumbersDontEqualTarget_ReturnsEmptyResult()
         {
             int[] numbers = { 4, 5 };
             var target = 10;
 
-            twoSum.FindIndices(numbers, target);
+            int[] actual = twoSum.FindIndices(numbers, target);
+
+            CollectionAssert.AreEqual(new int[] { }, actual);
         }
     }
 }

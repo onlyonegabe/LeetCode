@@ -8,10 +8,10 @@ namespace TwoSum
         {
             if (numbers == null) throw new ArgumentNullException();
 
-            for (int i = 0; i < numbers.Length; i++)
+            for (int i = 0; i < numbers.Length - 1; i++)
             {
                 var firstNumber = numbers[i];
-                for (int j = 1; j < numbers.Length; j++)
+                for (int j = i + 1; j < numbers.Length; j++)
                 {
                     var secondNumber = numbers[j];
                     if (NumbersAddUpToTarget(target, firstNumber, secondNumber))
@@ -21,7 +21,7 @@ namespace TwoSum
                 }
             }
 
-            return new[] { 0, 1 };
+            return new int[] { };
         }
 
         private static bool NumbersAddUpToTarget(int target, int firstNumber, int secondNumber) => firstNumber + secondNumber == target;
