@@ -25,6 +25,11 @@ namespace TwoSum
             return new[] { differenceIndex, subtrahendIndex };
         }
 
+        private static bool AnyDuplicateElements(IEnumerable<int> numbers)
+            => numbers.GroupBy(x => x)
+                .Where(x => x.Count() > 1)
+                .Select(x => x).Any();
+
         private void GetIndices(int[] numbers, int target)
         {
             var indicesByNumber = new Hashtable();
@@ -43,11 +48,6 @@ namespace TwoSum
                 indicesByNumber.Add(subtrahend, i);
             }
         }
-
-        private static bool AnyDuplicateElements(IEnumerable<int> numbers)
-            => numbers.GroupBy(x => x)
-                .Where(x => x.Count() > 1)
-                .Select(x => x).Any();
 
         private bool IndicesWereNotFound()
             => differenceIndex == -1 || subtrahendIndex == -1;
