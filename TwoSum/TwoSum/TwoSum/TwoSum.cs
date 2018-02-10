@@ -11,6 +11,7 @@ namespace TwoSum
             for (int i = 0; i < numbers.Length - 1; i++)
             {
                 var firstNumber = numbers[i];
+
                 for (int j = i + 1; j < numbers.Length; j++)
                 {
                     var secondNumber = numbers[j];
