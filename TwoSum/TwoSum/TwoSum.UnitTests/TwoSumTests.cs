@@ -19,7 +19,7 @@ namespace TwoSum.UnitTests
         [DataRow(new[] { 1, 2, 3 }, 5, new[] { 1, 2 }, DisplayName = "Second happy path case")]
         [DataRow(new[] { 1, 2, 3, 9, 5 }, 8, new[] { 2, 4 }, DisplayName = "Third happy path case")]
         [DataRow(new[] { 1, -5, 6 }, 1, new[] { 1, 2 }, DisplayName = "Happy path including negative numbers")]
-        public void TwoSum_NumbersEqualTarget_CorrectIndicesAreReturned(int[] numbers, int target, int[] expected)
+        public void FindIndices_NumbersEqualTarget_CorrectIndicesAreReturned(int[] numbers, int target, int[] expected)
         {
             int[] actual = twoSum.FindIndices(numbers, target);
 
@@ -28,13 +28,13 @@ namespace TwoSum.UnitTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void TwoSum_NullInput_ThrowsArgumentNullException()
+        public void FindIndices_NullInput_ThrowsArgumentNullException()
         {
             twoSum.FindIndices(null, 0);
         }
 
         [TestMethod]
-        public void TwoSum_NumbersDontEqualTarget_ReturnsEmptyResult()
+        public void FindIndices_NumbersDontEqualTarget_ReturnsEmptyResult()
         {
             int[] numbers = { 4, 5 };
             var target = 10;
