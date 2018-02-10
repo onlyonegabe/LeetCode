@@ -43,5 +43,12 @@ namespace TwoSum.UnitTests
 
             CollectionAssert.AreEqual(new int[] { }, actual);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void FindIndices_TwoNumbersAreTheSame_ThrowsException()
+        {
+            twoSum.FindIndices(new[] { 1, 1 }, 2);
+        }
     }
 }
