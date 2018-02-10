@@ -35,7 +35,7 @@ namespace TwoSum.UnitTests
 
         [TestMethod]
         [ExpectedException(typeof(Exception))]
-        public void FindIndices_NumbersDontEqualTarget_ReturnsEmptyResult()
+        public void FindIndices_NumbersDoNotEqualTarget_ReturnsEmptyResult()
         {
             int[] numbers = { 4, 5 };
             var target = 10;
@@ -48,6 +48,16 @@ namespace TwoSum.UnitTests
         public void FindIndices_TwoNumbersAreTheSame_ThrowsException()
         {
             twoSum.FindIndices(new[] { 1, 1 }, 2);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void FindIndices_MoreThanOneSolution_ThrowsException()
+        {
+            int[] numbers = { 2, 8, 4, 6 };
+            var target = 10;
+
+            twoSum.FindIndices(numbers, target);
         }
     }
 }
