@@ -34,14 +34,13 @@ namespace TwoSum.UnitTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(Exception))]
         public void FindIndices_NumbersDontEqualTarget_ReturnsEmptyResult()
         {
             int[] numbers = { 4, 5 };
             var target = 10;
 
-            int[] actual = twoSum.FindIndices(numbers, target);
-
-            CollectionAssert.AreEqual(new int[] { }, actual);
+            twoSum.FindIndices(numbers, target);
         }
 
         [TestMethod]
