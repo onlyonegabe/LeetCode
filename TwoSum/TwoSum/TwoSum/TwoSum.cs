@@ -41,8 +41,15 @@ namespace TwoSum
                 int difference = target - subtrahend;
                 if (indicesByNumber.Contains(difference))
                 {
-                    differenceIndex = int.Parse(indicesByNumber[difference].ToString());
-                    subtrahendIndex = i;
+                    if (IndicesWereNotFound())
+                    {
+                        differenceIndex = int.Parse(indicesByNumber[difference].ToString());
+                        subtrahendIndex = i;
+                    }
+                    else
+                    {
+                        throw new Exception("There are multiple solutions detected.");
+                    }
                 }
 
                 indicesByNumber.Add(subtrahend, i);
